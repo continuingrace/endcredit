@@ -7,33 +7,68 @@
 <link rel="manifest" href="manifest.webmanifest">
 <title>End Credit Letter</title>
 <style>
-:root{color-scheme:dark;--bg:#101010;--panel:#1b1b1b;--line:#333;--muted:#a7a7a7;--white:#f4f4f2}
-*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.04em}main{max-width:720px;margin:auto;padding:28px 18px 44px}h1{font-weight:300;letter-spacing:.22em;font-size:17px;margin:0 0 26px;text-transform:uppercase}.sub{font-size:11px;color:var(--muted);letter-spacing:.12em;margin:-15px 0 24px}.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}.row{display:flex;gap:10px;align-items:center;justify-content:space-between}.label{font-size:10px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-bottom:8px}input[type=file],input[type=text],select,button{font:inherit}input[type=text],select{width:100%;background:#111;color:var(--white);border:1px solid #444;border-radius:9px;padding:12px;font-size:14px;letter-spacing:.05em}input[type=file]{width:100%;font-size:12px;color:var(--muted)}button{background:var(--white);color:#111;border:0;border-radius:999px;padding:12px 17px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}button.secondary{background:#303030;color:var(--white)}button:disabled{opacity:.45}.preview{position:relative;background:#050505;border-radius:12px;overflow:hidden;min-height:180px;display:grid;place-items:center}.preview video{display:block;max-width:100%;max-height:52vh;width:auto;height:auto}.overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;pointer-events:none;text-transform:uppercase;flex-direction:column;padding:25px}.overlay.top{justify-content:flex-start;padding-top:12%}.overlay.left{align-items:flex-start;text-align:left;justify-content:center}.credit{font-size:10px;letter-spacing:.36em;margin-bottom:13px;font-weight:300}.maintext{font-size:clamp(18px,5vw,34px);letter-spacing:.24em;font-weight:300}.grain{position:absolute;inset:-50%;opacity:.055;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");animation:noise .18s steps(2) infinite}@keyframes noise{0%{transform:translate(0,0)}25%{transform:translate(3%,-2%)}50%{transform:translate(-2%,3%)}75%{transform:translate(2%,2%)}100%{transform:translate(-3%,-3%)}}.controls{display:grid;gap:12px}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:10px}.hint{color:var(--muted);font-size:11px;line-height:1.6}.status{min-height:18px;color:var(--muted);font-size:11px;margin-top:12px}@media(min-width:600px){main{padding-top:48px}}
+:root{color-scheme:dark;--bg:#101010;--panel:#1b1b1b;--line:#383838;--muted:#aaa;--white:#f4f4f2}
+*{box-sizing:border-box}body{margin:0;background:var(--bg);color:var(--white);font-family:"Helvetica Neue",Helvetica,Arial,sans-serif;letter-spacing:.04em}
+main{max-width:760px;margin:auto;padding:28px 18px 48px}h1{font-weight:400;letter-spacing:.22em;font-size:17px;margin:0 0 8px;text-transform:uppercase}.sub{font-size:11px;color:var(--muted);letter-spacing:.12em;margin:0 0 24px;line-height:1.7}
+.card{background:var(--panel);border:1px solid var(--line);border-radius:14px;padding:16px;margin:12px 0}.row{display:flex;gap:10px;align-items:center;justify-content:space-between}.label{font-size:10px;letter-spacing:.16em;color:var(--muted);text-transform:uppercase;margin-bottom:8px}
+input[type=file],input[type=text],select,button{font:inherit}input[type=text],select{width:100%;background:#111;color:var(--white);border:1px solid #4a4a4a;border-radius:9px;padding:11px;font-size:14px;letter-spacing:.04em}input[type=file]{width:100%;font-size:12px;color:var(--muted)}
+button{background:var(--white);color:#111;border:0;border-radius:999px;padding:12px 17px;font-size:11px;letter-spacing:.12em;text-transform:uppercase;font-weight:600}button.secondary{background:#303030;color:var(--white)}button:disabled{opacity:.45}
+.hint,.status{color:var(--muted);font-size:11px;line-height:1.65}.status{min-height:18px;margin-top:12px}
+.video-card{padding:12px;margin-top:14px}.video-title{font-size:11px;color:var(--muted);margin-bottom:10px;white-space:nowrap;overflow:hidden;text-overflow:ellipsis}
+.preview{position:relative;background:#050505;border-radius:10px;overflow:hidden;min-height:180px;display:grid;place-items:center}.preview video{display:block;max-width:100%;max-height:48vh;width:auto;height:auto}.overlay{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;text-align:center;pointer-events:none;text-transform:uppercase;flex-direction:column;padding:25px}.overlay.top{justify-content:flex-start;padding-top:12%}.overlay.bottom{justify-content:flex-end;padding-bottom:12%}.overlay.left{align-items:flex-start;text-align:left;justify-content:center}.overlay.right{align-items:flex-end;text-align:right;justify-content:center}.credit,.maintext{line-height:1.05}.credit{letter-spacing:.24em}.maintext{letter-spacing:.16em}.overlay.main-first .maintext{order:1}.overlay.main-first .credit{order:2}.overlay.label-first .credit{order:1}.overlay.label-first .maintext{order:2}.grain{position:absolute;inset:-50%;opacity:.055;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 180 180' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='n'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='.85' numOctaves='3' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23n)' opacity='.8'/%3E%3C/svg%3E");animation:noise .18s steps(2) infinite}@keyframes noise{0%{transform:translate(0,0)}25%{transform:translate(3%,-2%)}50%{transform:translate(-2%,3%)}75%{transform:translate(2%,2%)}100%{transform:translate(-3%,-3%)}}
+.controls{display:grid;gap:12px}.twocol{display:grid;grid-template-columns:1fr 1fr;gap:10px}.threecol{display:grid;grid-template-columns:1fr 1fr 1fr;gap:10px}input[type=range]{width:100%;accent-color:#f4f4f2}.range-row{display:flex;justify-content:space-between;font-size:10px;color:var(--muted);margin-top:5px}
+@media(max-width:520px){.threecol{grid-template-columns:1fr 1fr}.row{flex-wrap:wrap}}
 </style>
 </head>
 <body>
 <main>
-<h1>End Credit Letter</h1><p class="sub">A small moving letter, made on your device.</p>
-<section class="card"><div class="label">Source video</div><input id="files" type="file" accept="video/*" multiple><p class="hint">원본 영상의 색상과 비율을 그대로 사용합니다. 크롭과 레터박스는 추가하지 않습니다.</p></section>
-<section class="card"><div class="preview"><video id="video" controls playsinline></video><div class="overlay" id="overlay"><div class="credit" id="creditOut">A LETTER FROM</div><div class="maintext" id="mainOut">YOUR NAME</div></div><div class="grain"></div></div></section>
-<section class="card controls">
-<div><div class="label">Credit label</div><input id="credit" type="text" value="A LETTER FROM" maxlength="32"></div>
-<div><div class="label">Main text</div><input id="message" type="text" value="YOUR NAME" maxlength="44"></div>
-<div class="twocol"><div><div class="label">Position</div><select id="position"><option value="center">Center</option><option value="top">Top</option><option value="left">Left</option></select></div><div><div class="label">Motion</div><select id="motion"><option value="static">Static</option><option value="fade">Slow Fade</option><option value="rise">Gentle Rise</option></select></div></div>
-<div class="row"><button class="secondary" id="play">Play preview</button><button id="export" disabled>Export letter</button></div>
-<div class="status" id="status">영상을 선택하면 미리보기가 시작됩니다.</div>
+<h1>End Credit Letter</h1>
+<p class="sub">영상 개수 제한 없이, 영상마다 다른 엔딩 크레딧을 설정합니다.</p>
+<section class="card">
+<div class="label">Source videos</div>
+<input id="files" type="file" accept="video/*" multiple>
+<p class="hint">원하는 개수만큼 한 번에 선택하세요. 모든 영상이 아래에 미리보기로 표시됩니다. 원본 색상과 비율은 유지하고 크롭·레터박스는 추가하지 않습니다.</p>
+<div class="row"><button class="secondary" id="playAll" disabled>Play all previews</button><span id="count" class="hint"></span></div>
+</section>
+<section id="videos"></section>
+<section class="card">
+<div class="row"><div class="hint">각 영상의 설정은 영상별로 따로 저장됩니다.</div><button id="downloadAll" class="secondary" disabled>Download originals</button></div>
+<div id="status" class="status">영상을 선택하면 영상별 편집 카드가 나타납니다.</div>
 </section>
 </main>
 <script>
-const $=id=>document.getElementById(id), video=$('video'), files=$('files'), status=$('status');
-let currentUrl='', currentFile=null;
-function sync(){ $('creditOut').textContent=$('credit').value||' '; $('mainOut').textContent=$('message').value||' '; $('overlay').className='overlay '+$('position').value; document.documentElement.style.setProperty('--motion',$('motion').value)}
-['credit','message','position','motion'].forEach(id=>$(id).addEventListener('input',sync));
-files.addEventListener('change',()=>{currentFile=files.files[0];if(!currentFile)return;if(currentUrl)URL.revokeObjectURL(currentUrl);currentUrl=URL.createObjectURL(currentFile);video.src=currentUrl;$('export').disabled=false;status.textContent=files.files.length>1?files.files.length+'개의 영상 중 첫 영상을 미리봅니다.':'영상이 준비되었습니다.';sync()});
-$('play').onclick=async()=>{if(video.paused){await video.play();$('play').textContent='Pause preview'}else{video.pause();$('play').textContent='Play preview'}};
-$('export').onclick=()=>{if(!currentFile)return;const a=document.createElement('a');a.href=currentUrl;a.download='end-credit-letter-'+currentFile.name;a.click();status.textContent='원본 영상 파일을 다운로드했습니다. 텍스트는 미리보기용으로 표시됩니다.'};
+const $=id=>document.getElementById(id), filesEl=$('files'), list=$('videos'), status=$('status');
+let items=[];
+const esc=s=>String(s).replace(/[&<>"']/g,c=>({'&':'&amp;','<':'&lt;','>':'&gt;','"':'&quot;',"'":'&#039;'}[c]));
+function card(item,i){
+ const c=document.createElement('section'); c.className='card video-card'; c.dataset.i=i;
+ c.innerHTML='<div class="video-title">'+esc((i+1)+'. '+item.file.name)+'</div>'+
+ '<div class="preview"><video playsinline controls></video><div class="overlay label-first"><div class="credit">IN SEOUL</div><div class="maintext">BRAND NEW DAY</div></div><div class="grain"></div></div>'+
+ '<div class="controls">'+
+ '<div><div class="label">Credit label</div><input data-k="credit" type="text" value="IN SEOUL" maxlength="32"></div>'+
+ '<div><div class="label">Main text</div><input data-k="main" type="text" value="BRAND NEW DAY" maxlength="44"></div>'+
+ '<div class="twocol"><div><div class="label">Text order</div><select data-k="order"><option value="label-first">Credit label / Main text</option><option value="main-first">Main text / Credit label</option></select></div><div><div class="label">Position</div><select data-k="position"><option value="center">Center</option><option value="top">Top</option><option value="bottom">Bottom</option><option value="left">Left</option><option value="right">Right</option></select></div></div>'+
+ '<div class="threecol"><div><div class="label">Weight</div><select data-k="weight"><option value="300">Light</option><option value="400" selected>Regular</option><option value="500">Medium</option><option value="600">Semi bold</option><option value="700">Bold</option></select></div><div><div class="label">Main size</div><input data-k="size" type="range" min="12" max="72" value="32"><div class="range-row"><span>12</span><span data-out="size">32px</span></div></div><div><div class="label">Gap</div><input data-k="gap" type="range" min="0" max="28" value="5"><div class="range-row"><span>0</span><span data-out="gap">5px</span></div></div></div>'+
+ '</div>';
+ const v=c.querySelector('video'); item.url=URL.createObjectURL(item.file); v.src=item.url;
+ c.querySelectorAll('[data-k]').forEach(el=>el.addEventListener('input',()=>sync(c)));
+ list.appendChild(c); sync(c); return c;
+}
+function sync(c){
+ const o=c.querySelector('.overlay'), get=k=>c.querySelector('[data-k="'+k+'"]').value;
+ c.querySelector('.credit').textContent=get('credit')||' '; c.querySelector('.maintext').textContent=get('main')||' ';
+ o.className='overlay '+get('order')+' '+get('position');
+ c.querySelector('.maintext').style.fontSize=get('size')+'px'; c.querySelector('.maintext').style.fontWeight=get('weight'); c.querySelector('.credit').style.fontWeight=get('weight');
+ c.querySelector('.overlay').style.gap=get('gap')+'px'; c.querySelector('[data-out="size"]').textContent=get('size')+'px'; c.querySelector('[data-out="gap"]').textContent=get('gap')+'px';
+}
+filesEl.addEventListener('change',()=>{
+ items.forEach(x=>URL.revokeObjectURL(x.url)); items=[...filesEl.files].map(file=>({file,url:''})); list.innerHTML='';
+ items.forEach((item,i)=>card(item,i)); $('count').textContent=items.length+'개 영상'; $('playAll').disabled=!items.length; $('downloadAll').disabled=!items.length;
+ status.textContent=items.length+'개 영상의 미리보기를 준비했습니다. 각 카드에서 따로 설정하세요.';
+});
+$('playAll').onclick=async()=>{const vs=[...list.querySelectorAll('video')]; const shouldPlay=vs.some(v=>v.paused); for(const v of vs){if(shouldPlay)await v.play().catch(()=>{});else v.pause()} $('playAll').textContent=shouldPlay?'Pause all previews':'Play all previews'};
+$('downloadAll').onclick=()=>items.forEach((item,i)=>{const a=document.createElement('a');a.href=item.url;a.download='end-credit-'+String(i+1).padStart(2,'0')+'-'+item.file.name;a.click()});
 if('serviceWorker' in navigator)navigator.serviceWorker.register('./sw.js').catch(()=>{});
-sync();
 </script>
 </body>
 </html>
